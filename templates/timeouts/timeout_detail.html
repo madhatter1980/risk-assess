@@ -1,0 +1,72 @@
+{% extends "layouts/container.html" %}
+
+{% block title %}Questionnaires{% endblock title %}
+
+{% block content %}
+<div class="mb-4">
+<a href="{% url 'user_timeout_list' %}" class="link-offset-2">
+    <i class="bi bi-arrow-left"></i> Back
+  </a>
+</div>
+<div class="row pb-2 border-bottom">
+    <div class="col">
+        <h4>Time Out for Safety - {{ timeout.questionnaire.name }}</h4>
+    </div>
+    <div class="col"><h4>{{ timeout.questionnaire.business }}</h4></div>
+</div>
+<div class="row my-3">
+    <div class="col"><h6>Submitted By: {{ timeout.user.first_name }}</h6></div>
+    <div class="col"><h6>Date: {{ timeout.created_at }}</h6></div>
+</div>
+<div class="row my-3">
+    <div class="col"><h6>Task: {{ timeout.task|upper }}</h6></div>
+    <div class="col"><h6>Location: {{ timeout.location }}</h6></div>
+</div>
+<div class="mb-3">
+    {% if timeout.warning == True %}
+    <span class="btn btn-danger">Inadequate Answers or Controls - Consult your Supervisor.</span>
+    {% else %}
+    <span class="btn btn-success">Answers and Controls are Adequate.</span>
+    {% endif %}
+</div>
+<div class="row py-2 my-2 header-gray">
+    <div class="col-6"><h6 class="m-0">Questions</h6></div>
+    <div class="col-3"><h6 class="m-0">Answers</h6></div>
+    <div class="col-3"><h6 class="m-0">Preferred Answer</h6></div>
+</div>
+{% for timeout_answer in timeout_answers %}
+<div
+    class="row align-items-center mt-2 pb-2 {% if not forloop.last %}border-bottom{% endif %}"
+>
+    <div class="col-6"><span>{{ timeout_answer.question }}</span></div>
+    <div class="col-3">
+        {% if timeout_answer.answer|lower == "yes" %}
+        <span class="btn btn-success">Yes</span>
+        {% elif timeout_answer.answer|lower == "no" %}
+        <span class="btn btn-danger">No</span>
+        {% else %}
+        <span>{{ timeout_answer.answer|capfirst }}</span>
+        {% endif %}
+    </div>
+    <div class="col-3">
+        {% if timeout_answer.preferred_answer|lower == "yes" %}
+        <span class="btn btn-success">Yes</span>
+        {% elif timeout_answer.preferred_answer|lower == "no" %}
+        <span class="btn btn-danger">No</span>
+        {% elif timeout_answer.preferred_answer|lower == "n/a" %}
+        <span class="btn btn-secondary">N/A</span>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+<div class="row py-2 my-2 header-gray">
+    <div class="col"><h6 class="m-0">Hazards</h6></div>
+    <div class="col"><h6 class="m-0">Controls</h6></div>
+</div>
+{% for timeout_hazard in timeout_hazards%}
+<div class="row mt-2 mb-3 pb-2 border-bottom">
+    <div class="col"><span>{{ timeout_hazard.hazard|capfirst }}</span></div>
+    <div class="col"><span>{{ timeout_hazard.control|capfirst }}</span></div>
+</div>
+{% endfor %}
+{% endblock content %}

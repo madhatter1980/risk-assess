@@ -1,0 +1,114 @@
+{% extends "layouts/auth_card.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<h3>Sign Up as an Admin User</h3>
+<form method="post" class="mt-4">
+    {% csrf_token %} {{ form.non_field_errors }}
+    <div class="form-group">
+        {{ form.email|as_crispy_field }}
+    </div>
+    <div class="form-group">
+        {{ form.first_name|as_crispy_field }}
+    </div>
+    <div class="form-group">
+        {{ form.last_name|as_crispy_field }}
+    </div>
+    <div class="form-group">
+        {{ form.password1|as_crispy_field }}
+    </div>
+    <div class="form-group">
+        {{ form.password2|as_crispy_field }}
+    </div>
+    <div class="form-group my-3">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="id_accepted_terms" name="accepted_terms" required>
+            <label class="form-check-label" for="id_accepted_terms">
+                I accept the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions*</a>
+            </label>
+            {% if form.accepted_terms.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.accepted_terms.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Register</button>
+</form>
+
+<!-- Terms and Conditions Modal -->
+<div
+    class="modal fade"
+    id="termsModal"
+    tabindex="-1"
+    aria-labelledby="termsModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-lg"> <!-- Enlarged modal for better readability -->
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold" id="termsModalLabel">
+                    Terms and Conditions
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <div class="border rounded p-3 bg-light" style="max-height: 400px; overflow-y: auto;">
+                    <p class="mb-2"><strong>1. No Liability Disclaimer</strong></p>
+                    <p>
+                        Risk-Assess is an online tool designed to assist users in identifying and reducing workplace hazards. However, the website and its creators, owners, and affiliates assume <strong>no liability</strong> for the accuracy, completeness, or applicability of the information provided.
+                    </p>
+
+                    <p class="mb-2"><strong>2. User Responsibility</strong></p>
+                    <p>
+                        It is the sole responsibility of the user to ensure that all workplace safety assessments comply with relevant laws, regulations, and best practices. Risk-Assess does <strong>not replace professional judgment</strong>, legal compliance, or site-specific risk management protocols.
+                    </p>
+
+                    <p class="mb-2"><strong>3. No Guarantee of Safety</strong></p>
+                    <p>
+                        While Risk-Assess aims to provide useful guidance for hazard identification, using this tool <strong>does not guarantee a safe working environment</strong>. Users must conduct independent safety evaluations and make informed decisions to mitigate risks.
+                    </p>
+
+                    <p class="mb-2"><strong>4. No Legal or Professional Advice</strong></p>
+                    <p>
+                        Risk-Assess does not provide legal, regulatory, or professional safety advice. Users should consult <strong>qualified safety professionals</strong> and adhere to company policies, industry standards, and governmental safety regulations.
+                    </p>
+
+                    <p class="mb-2"><strong>5. Use at Your Own Risk</strong></p>
+                    <p>
+                        By using Risk-Assess, users acknowledge that:
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">They assume <strong>full responsibility</strong> for any actions taken based on the information provided.</li>
+                            <li class="list-group-item">The website and its owners are <strong>not liable</strong> for any injuries, damages, losses, or legal consequences resulting from its use.</li>
+                            <li class="list-group-item">They will <strong>perform their own due diligence</strong> and take all necessary safety precautions before performing any work.</li>
+                        </ul>
+                    </p>
+
+                    <p class="mb-2"><strong>6. Acceptance of Terms</strong></p>
+                    <p>
+                        By accessing and using this website, you <strong>agree to these Terms and Conditions</strong>. If you do not accept these terms, you must refrain from using the website.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

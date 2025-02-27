@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block layout %}
+<div class="auth-card">
+    <div class="card text-bg-light mb-3 mx-auto p-5 auth-card-width">
+        {% block content %}
+    <!-- all the auth content goes here -->
+        {% endblock content %}
+    </div>
+</div>
+{% endblock layout%}

@@ -1,0 +1,17 @@
+{
+  "name": "risk-assess",
+  "version": "0.0.1",
+  "description": "risk assessment project",
+  "main": "index.js",
+  "scripts": {
+    "sass:build": "sass scss:static/css",
+    "sass:watch": "sass --watch scss:static/css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "sass": "^1.77.8"
+  }
+}

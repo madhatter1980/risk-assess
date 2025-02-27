@@ -1,0 +1,120 @@
+{% extends "layouts/auth_card.html" %}
+{% block title %}Profile{% endblock title %}
+{% block content %}
+<h2 class="mb-3">{{ user.first_name }}'s Profile </h2>
+<div class="row my-2">
+    <div class="col col-3">
+        <h6>Email:</h6>
+    </div>
+    <div class="col col-9">
+        <h6>{{ user.email }}</h6>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col col-3">
+        <h6>Fisrt Name:</h6>
+    </div>
+    <div class="col col-9">
+        <h6>{{ user.first_name }}</h6>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col col-3">
+        <h6>Last Name:</h6>
+    </div>
+    <div class="col col-9">
+        <h6>{{ user.last_name }}</h6>
+    </div>
+</div>
+<div class="row my-3">
+    <div class="col-12 col-md">
+        <a class="btn btn-primary w-75 mb-2 mb-md-0" href="{% url 'update_profile' %}">Update Profile</a>
+    </div>
+    <div class="col-12 col-md text-start text-md-end">
+        <a class="btn btn-warning w-75" href="{% url 'password_change' %}">Change Password</a>
+    </div>
+</div>
+<div>
+    <hr>
+</div>
+<!-- Business Profile -->
+{% if business_user %}
+    <h2 class="mb-3">Business Profile</h2>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>Name:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.name }}</h6>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>Branch:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.branch }}</h6>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>Phone:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.phone }}</h6>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>Address:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.address }}</h6>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>City:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.city }}</h6>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>State:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.state }}</h6>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>Post Code:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.postcode }}</h6>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-3">
+                <h6>Description:</h6>
+            </div>
+            <div class="col col-9">
+                <h6>{{ business.description }}</h6>
+            </div>
+        </div>
+    {% if business_user.is_admin %}
+    <div class="row my-3">
+        <div class="col-12 col-md">
+            <a class="btn btn-primary w-75 mb-2 mb-md-0" href="{% url 'update_business' business_user.business.id %}">Update Business Details</a>
+        </div>
+        <div class="col-12 col-md text-start text-md-end">
+            <a class="btn btn-warning w-75" href="{% url 'business_users' %}">Manage {{ members }} Members</a>
+        </div>
+    </div>
+    {% endif %}
+{% else %}
+    <p>Business not set up <a href="{% url 'add_business' %}">Click Here</a> to do so</p>
+{% endif %}
+{% endblock content %}

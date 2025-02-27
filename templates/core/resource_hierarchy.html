@@ -1,0 +1,113 @@
+{% extends "layouts/container.html" %}
+{% load static %}
+
+{% block title %}Resource - Hierarchy{% endblock title %}
+
+{% block content %}
+<div class="container mb-6">
+    <h1 class="text-center mb-4">Hierarchy of Controls</h1>
+    <h3 class="text-center mb-4">
+        Controls are proactive measures to eliminate hazards or reduce their impact.
+    </h3>
+    <p class="text-center mb-5">
+        The Hierarchy of Controls provides a structured approach to managing workplace hazards. It prioritizes the most effective methods, such as eliminating risks, and progresses to measures like protective equipment to ensure a safer, more efficient work environment.
+    </p>
+    <h5 class="text-center mb-3">
+        <i class="bi bi-arrow-down me-3"></i>To Elliminate hazards always start at the top and work you way down<i class="bi bi-arrow-down ms-3"></i>
+    </h5>
+    <!-- Card: Elimination -->
+    <div class="card hierarchy-card shadow-sm mx-auto mb-4 transition">
+        <div
+            class="card-body d-flex flex-md-row flex-column align-items-center"
+        >
+            <i
+                class="bi bi-trash text-info icon-large me-md-5 mb-3 mb-md-0"
+            ></i>
+            <h4 class="mb-0 me-md-5 mb-3 mb-md-0 text-center text-md-start">
+                Elimination
+            </h4>
+            <p class="mb-0 text-center text-md-start">
+                Physically removing the hazard is the most effective control
+                measure, as it completely eliminates the risk.
+            </p>
+        </div>
+    </div>
+
+    <!-- Card: Substitution -->
+    <div class="card hierarchy-card shadow-sm mx-auto mb-4 transition">
+        <div
+            class="card-body d-flex flex-md-row flex-column align-items-center"
+        >
+            <i
+                class="bi bi-arrow-repeat text-primary icon-large me-md-5 mb-3 mb-md-0"
+            ></i>
+            <h4 class="mb-0 me-md-5 mb-3 mb-md-0 text-center text-md-start">
+                Substitution
+            </h4>
+            <p class="mb-0 text-center text-md-start">
+                Replacing a hazardous material, process, or equipment with a
+                safer alternative reduces the level of risk involved.
+            </p>
+        </div>
+    </div>
+
+    <!-- Card: Engineering Controls -->
+    <div class="card hierarchy-card shadow-sm mx-auto mb-4 transition">
+        <div
+            class="card-body d-flex flex-md-row flex-column align-items-center"
+        >
+            <i
+                class="bi bi-tools text-warning icon-large me-md-5 mb-3 mb-md-0"
+            ></i>
+            <h4 class="mb-0 me-md-5 mb-3 mb-md-0 text-center text-md-start">
+                Engineering Controls
+            </h4>
+            <p class="mb-0 text-center text-md-start">
+                Designing or modifying equipment, facilities, or processes to
+                isolate people from the hazard reduces exposure.
+            </p>
+        </div>
+    </div>
+
+    <!-- Card: Administrative Controls -->
+    <div class="card hierarchy-card shadow-sm mx-auto mb-4 transition">
+        <div
+            class="card-body d-flex flex-md-row flex-column align-items-center"
+        >
+            <i
+                class="bi bi-clipboard-check icon-large me-md-5 mb-3 mb-md-0"
+                style="color: darkgoldenrod"
+            ></i>
+            <h4 class="mb-0 me-md-5 mb-3 mb-md-0 text-center text-md-start">
+                Administrative Controls
+            </h4>
+            <p class="mb-0 text-center text-md-start">
+                Implementing policies, training, schedules, or procedures to
+                change how people work and minimize risk.
+            </p>
+        </div>
+    </div>
+
+    <!-- Card: PPE -->
+    <div class="card hierarchy-card shadow-sm mx-auto mb-4 transition">
+        <div
+            class="card-body d-flex flex-md-row flex-column align-items-center"
+        >
+            <i
+                class="bi bi-shield-fill-exclamation text-danger icon-large me-md-5 mb-3 mb-md-0"
+            ></i>
+            <h4 class="mb-0 me-md-5 mb-3 mb-md-0 text-center text-md-start">
+                Personal Protective Equipment (PPE)
+            </h4>
+            <p class="mb-0 text-center text-md-start">
+                Providing equipment like helmets, gloves, or masks to protect
+                workers is the least effective measure but still necessary as a
+                last line of defense.
+            </p>
+        </div>
+    </div>
+    <h5 class="text-center mb-3">
+        <i class="bi bi-arrow-down me-3"></i>PPE should always be the last line of defence<i class="bi bi-arrow-down ms-3"></i>
+    </h5>
+</div>
+{% endblock content %}

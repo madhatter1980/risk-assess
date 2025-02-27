@@ -1,0 +1,44 @@
+# all of the files and folders that you want git to ignore and not upload to the repository
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.env
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.mo
+*.swp
+media
+
+# Environments
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+env/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Node.js
+node_modules/
+
+# SCSS
+scss/
+
+# Ignore notes.txt file
+notes.txt

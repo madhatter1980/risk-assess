@@ -1,0 +1,12 @@
+{% extends "layouts/auth_card.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Sign Up{% endblock title %}
+{% block content %}
+<h3>Sign Up a new user to your business</h3>
+<p>they will not be set up as an admin</p>
+<form method="post">
+{% csrf_token %}
+{{ form|crispy }}
+<button class="btn btn-primary" type="submit">Sign Up</button>
+</form>
+{% endblock content %}

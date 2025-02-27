@@ -1,0 +1,232 @@
+{% extends "layouts/blank.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<!-- Header Section -->
+<header class="header">
+    <div class="container py-6 py-lg-8">
+        <h1 class="header-heading text-center mt-4 mt-md-4 display-4 display-md-3 display-sm-2">Timeout for Safety Before Every Task</h1>
+        <h3 class="header-text text-center mt-4 mt-md-5 fs-2 fs-md-3 fs-sm-4 fs-5">Timeout for Safety is a critical practice in safety management, emphasizing the importance of pausing and evaluating potential risks before engaging in any task. It acts as a momentary stop "Timeout" to ensure safety is prioritized over speed or convenience.</h3>
+        {% if user.is_authenticated %}
+            <div class="row mt-6 mt-md-5 align-items-center">
+                <div class="col-12 col-md text-center"><a class="btn btn-dark p-3" href="{% url 'timeout_select' %}">Submit a Timeout</a></div>
+            </div>
+        {% else %}
+            <div class="row mt-4 mt-md-5 align-items-center">
+                <div class="col-12 col-md-9 text-center">
+                    <h4 class="header-text">Empower Your Team's Safety with This Powerful Tool</h4>
+                </div>
+                <div class="col-12 col-md-3 mt-3 mt-md-0 text-center">
+                    <a class="btn btn-dark p-3" href="{% url 'signup' %}">Join Us Today</a>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+</header>
+
+<!-- Customise Questions Section -->
+<section class="customise-questions py-6 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold join-us-headings">Fully Customisable Questionnaires</h2>
+            <p class="lead text-muted join-us-text">
+                Tailor your Timeout Questionnaires to fit specific tasks, trades, and industries.
+            </p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center py-5">
+                        <i class="bi bi-ui-checks-grid fs-1 text-primary"></i>
+                        <h4 class="fw-bold mt-3">Multiple Questionnaires</h4>
+                        <p class="text-muted">
+                            Create different Timeout Questionnaires for various job roles, teams, or industries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center py-5">
+                        <i class="bi bi-pencil-square fs-1 text-success"></i>
+                        <h4 class="fw-bold mt-3">Edit & Add Questions</h4>
+                        <p class="text-muted">
+                            Modify existing questions or add new ones to align with your safety requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center py-5">
+                        <i class="bi bi-tools fs-1 text-warning"></i>
+                        <h4 class="fw-bold mt-3">Tailored for Your Trade</h4>
+                        <p class="text-muted">
+                            Customise questionnaires to match the unique safety concerns of your industry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% if user.is_authenticated %}
+        <div class="text-center mt-5">
+            <a href="{% url 'questionnaires_list' %}" class="btn btn-dark btn-lg px-5">
+                Start Customising
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<div class="bg-light">
+    <hr class="border border-secondary w-75 mx-auto my-0">
+</div>
+
+<!-- Timeout for Safety Section -->
+<section class="safety-items py-6 bg-light">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <!-- Left: Safety Items -->
+            <div class="col-md-6 text-center">
+                <div class="d-inline-block text-start">
+                    <h2 class="fw-bold text-center">
+                        TIMEOUT <span class="fw-normal fs-3">for</span> SAFETY
+                    </h2>
+                    <div class="mt-4">
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="bi bi-sign-stop-fill text-danger fs-1 me-3"></i>
+                                <span class="fs-5">Stop and Think Through the Task.</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="bi bi-exclamation-triangle-fill text-warning fs-1 me-3"></i>
+                                <span class="fs-5">Inspect Your Work Area and Equipment.</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="bi bi-search text-dark fs-1 me-3"></i>
+                                <span class="fs-5">Identify Potential Hazards.</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="bi bi-wrench text-success fs-1 me-3"></i>
+                                <span class="fs-5">Implement Hazard Controls.</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <img src="{% static 'images/shield.svg' %}" alt="Shield" class="me-3" style="width: 44px; height: 44px;">
+                                <span class="fs-5">Do the Task Safely.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Image -->
+            <div class="col-md-6 text-center">
+                <img src="{% static 'images/checklist_image.png' %}" alt="Safety illustration" class="img-fluid" style="height: 450px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="bg-light">
+    <hr class="border border-secondary w-75 mx-auto my-0">
+</div>
+
+<!-- benefits of timeouts section -->
+<section class="benefits py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Benefits of Timeouts</h2>
+            <p class="text-muted">Taking a moment to pause can save lives and prevent risks in the workplace.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="d-flex flex-column align-items-center justify-content-center p-4 border rounded shadow-sm bg-white h-100 text-center">
+                    <div class="mb-3">
+                        <i class="bi bi-shield-check fs-1 text-success"></i>
+                    </div>
+                    <h4 class="fw-bold">Improved Awareness</h4>
+                    <p class="text-muted">
+                        Timeouts provide an opportunity to identify potential hazards that may otherwise go unnoticed, 
+                        ensuring everyone is prepared and alert for the task ahead.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="d-flex flex-column align-items-center justify-content-center p-4 border rounded shadow-sm bg-white h-100 text-center">
+                    <div class="mb-3">
+                        <i class="bi bi-lightbulb fs-1 text-warning"></i>
+                    </div>
+                    <h4 class="fw-bold">Better Decision Making</h4>
+                    <p class="text-muted">
+                        Pausing to assess the situation allows individuals to evaluate risks, consider safer options, and make informed decisions that prioritize personal safety over shortcuts.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="d-flex flex-column align-items-center justify-content-center p-4 border rounded shadow-sm bg-white h-100 text-center">
+                    <div class="mb-3">
+                        <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
+                    </div>
+                    <h4 class="fw-bold">Reduced Accidents</h4>
+                    <p class="text-muted">
+                        Proactive safety measures help minimise workplace accidents, 
+                        creating a safer environment for everyone and reducing costly interruptions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- call to action -->
+<section class="call-to-action green-back py-6">
+    <div class="container">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="white-heading">Empower Your Business with Safety</h1>
+            <p class="lead white-text">
+                Take the lead in creating safer workplaces while fostering a culture of safety and care.
+            </p>
+        </div>
+        <div class="row g-5">
+            <!-- Feature 1 -->
+            <div class="col-md-4 text-center">
+                <i class="bi bi-gear-fill text-white icon-large mb-3"></i>
+                <h3 class="white-heading py-3">Tailored for Every Task</h3>
+                <p class="white-text">
+                    Create multiple Safety Timeouts tailored to different tasks or trades, with the flexibility to easily add or adjust questions for each one.
+                </p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4 text-center">
+                <i class="bi bi-building-fill text-white icon-large mb-3"></i>
+                <h3 class="white-heading py-3">Structured Safety</h3>
+                <p class="white-text">
+                    Empower teams with a consistent, organised approach to managing workplace hazards.
+                </p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4 text-center">
+                <i class="bi bi-emoji-smile-fill text-white icon-large mb-3"></i>
+                <h3 class="white-heading py-3">Safer, Smarter Workplaces</h3>
+                <p class="white-text">
+                    Improved business performance by keeping teams safe and operations running smoothly.
+                </p>
+            </div>
+        </div>
+        {% if not user.is_authenticated %}
+        <!-- Call-to-Action Button -->
+        <div class="text-center mt-5">
+            <a href="{% url 'signup' %}" class="btn btn-dark btn-lg px-5">Join Us Today</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}

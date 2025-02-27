@@ -1,0 +1,59 @@
+{% extends "layouts/container.html" %}
+
+{% block title %}Timeouts{% endblock title %}
+
+{% block content %}
+<div class="row mb-3">
+    <div class="col">
+        <h2>{{ user.first_name }}'s Safety Timeouts</h2>
+        <h6 class="mt-2">Last 10 submitted</h6>
+    </div>
+    <div class="col">
+        <div class="text-center">
+            <a href="{% url 'timeout_select' %}" class="btn btn-primary"
+                >Submit New Timeout</a
+            >
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Timeout</th>
+                <th>Task</th>
+                <th>Location</th>
+                <th>Date Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for timeout in timeouts %}
+            <tr>
+                <td>{{ timeout.questionnaire_name }}</td>
+                <td>
+                    {% if timeout.warning == True %}
+                    <a
+                        class="link-danger link-offset-2 text-uppercase"
+                        href="{% url 'timeout_detail' timeout.id %}"
+                        >{{ timeout.task }}</a
+                    >
+                    {% else %}
+                    <a
+                        class="link-offset-2 text-uppercase"
+                        href="{% url 'timeout_detail' timeout.id %}"
+                        >{{ timeout.task }}</a
+                    >
+                    {% endif %}
+                </td>
+                <td>{{ timeout.location }}</td>
+                <td>{{ timeout.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not timeouts %}
+        <tr>You dont have any Timeouts</tr>
+    {% endif %}
+</div>
+{% endblock content %}

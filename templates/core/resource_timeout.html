@@ -1,0 +1,91 @@
+{% extends "layouts/container.html" %}
+{% load static %}
+{% block title %}Resource - Timeout{% endblock title %}
+{% block content %}
+
+<div class="container py-4">
+    <h1 class="text-center mb-4">Safety Timeout</h1>
+    <h3 class="text-center mb-4">
+        Submitting a Safety Timeout Step-by-Step Guide
+    </h3>
+    <p class="text-center mb-5">
+        A Safety Timeout is a structured process to ensure workplace safety before starting a task. The form guides you through a set of questions to assess potential hazards and necessary precautions. Follow these steps to complete the process effectively:
+    </p>
+
+    <!-- Step 1 -->
+    <div class="card my-3 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-success">1. Enter Task Details</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Provide a brief description of the <strong>task</strong> you are performing.</li>
+                <li class="list-group-item">Specify the <strong>location</strong> where the task will be carried out.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="card my-3 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-success">2. Answer the Safety Questions</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">You will be presented with a list of <strong>safety-related questions</strong>.</li>
+                <li class="list-group-item">
+                    If a question is a <strong>Yes/No</strong> type:
+                    <ul class="list-group mt-2">
+                        <li class="list-group-item border-0">Select <strong class="btn btn-success">YES</strong> or <strong class="btn btn-danger">NO</strong> based on the way the question is phrased.</li>
+                    </ul>
+                </li>
+                <li class="list-group-item">If the question requires a <strong>text response</strong>, provide a clear and concise answer.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="card my-3 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-success">4. List Hazards and Controls</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Identify any <strong>hazards</strong> associated with the task.</li>
+                <li class="list-group-item">Provide the <strong>control measures</strong> to remove, reduce the likelihood or impact of hazards.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="card my-3 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-success">5. Submit the Form</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Review your responses to ensure accuracy.</li>
+                <li class="list-group-item">Click the <strong>Submit</strong> button to finalize the Safety Timeout.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="card my-3 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-success">3. Handling Non-Ideal Answers</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    If your answer to the questions indicates that a potential hazard hasnt been addressed, you will recieve an
+                    <strong>Alert</strong> for you to contact your <strong>supervisor</strong>.
+                    <div class="messages mx-auto pt-3" style="max-width: 50%">
+                        <div class="alert alert-danger fade show text-center">
+                            <strong>WARNING !</strong><br>
+                            Contact your <strong>Supervisor</strong> before Proceeding.<br>
+                            There are potential hazards or controls that need to be addressed.
+                      </div>
+                    </div>
+                </li>
+                <li class="list-group-item">It is important to address any safety concerns before proceeding with the task.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alert alert-success mt-4" role="alert">
+        By following these steps, you contribute to a <strong>safer work environment</strong> by ensuring all necessary precautions are in place before beginning your task.
+    </div>
+</div>
+
+{% endblock content %}

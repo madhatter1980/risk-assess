@@ -1,0 +1,12 @@
+{% extends "layouts/auth_card.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Profile Update{% endblock title %}
+{% block content %}
+<h2>Profile Update</h2>
+<form method="post">
+{% csrf_token %}
+{{ user_form|crispy }}
+{{ profile_form|crispy }}
+<button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,184 @@
+/* Define regular weight */
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+/* Define italic bold if needed */
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+/* Poppins-ExtraBold */
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+/* Apply font to body */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400; /* Regular weight */
+  font-size: 1rem; /* 16px */
+  line-height: 1.5; /* 1.5x line height */
+  color: #333; /* Dark grey text color */
+}
+
+/* Apply styles to navbar */
+.navbar-brand {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+.navbar {
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar-nav .nav-link {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400; /* Regular weight for links */
+  font-size: 1rem;
+}
+
+.navbar-background {
+  background-color: #3A9D5D;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #f0f0f0; /* Light grey background */
+  color: #333; /* Dark text color for better contrast */
+}
+
+.header {
+  background-image: url("/static/images/header_section_1024_576.png");
+  background-size: cover; /* Ensure the image covers the entire header */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image */
+  width: 100%; /* Set the width to 100% of the container */
+  height: 576px; /* Set the height to 100% of the viewport height */
+}
+
+.header-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-gray {
+  background-color: #e9ecef;
+}
+
+.auth-card-width {
+  width: 50%;
+}
+@media (max-width: 768px) {
+  .auth-card-width {
+    width: 90%;
+  }
+}
+
+.business-users-card-width {
+  width: 80%;
+}
+@media (max-width: 768px) {
+  .business-users-card-width {
+    width: 90%;
+  }
+}
+
+.auth-card {
+  min-height: calc(100vh - 155px); /* Subtract to allow for the footer height */
+}
+
+.hierarchy-card {
+  width: 90%;
+}
+@media (max-width: 768px) {
+  .hierarchy-card {
+    width: 100%;
+  }
+}
+
+.hierarchy-card:hover {
+  transform: scale(1.02); /* Slightly enlarge the card */
+  border-color: var(--bs-info); /* Primary border color */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.container-view-height {
+  min-height: calc(100vh - 110px); /* Subtract to allow for the footer height */
+}
+
+.green-back {
+  background-color: #3A9D5D;
+}
+
+.white-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.white-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.icon-large {
+  font-size: 56px;
+}
+
+.hover-scale-hazard:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  border-color: var(--bs-danger); /* Primary border color */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hover-scale-control:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  border-color: var(--bs-primary); /* Primary border color */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.customise-questionnaires {
+  background-color: #3A9D5D;
+}
+
+.mission-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mission-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  background-color: #3A9D5D;
+  color: white;
+}
+
+/*# sourceMappingURL=base.css.map */

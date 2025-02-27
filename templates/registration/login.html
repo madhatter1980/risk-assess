@@ -1,0 +1,12 @@
+{% extends "layouts/auth_card.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Log In{% endblock title %}
+{% block content %}
+<h3>Log In</h3>
+<form method="post">
+{% csrf_token %}
+{{ form|crispy }}
+<p><a href="{% url 'password_reset' %}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" >Forgot password?</a></p>
+<button class="btn btn-primary" type="submit">Log In</button>
+</form>
+{% endblock content %}

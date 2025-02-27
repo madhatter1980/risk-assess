@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon">
+    <title>{% block title %}Risk-Assess{% endblock %}</title>
+    <!-- CSS and Bootstrap-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-icons/bootstrap-icons.css' %}">
+</head>
+<body>
+    {% include  'partials/navbar.html'%}
+    <div id="main-container" class="container-view-height mt-7">
+    {% include  'partials/messages.html'%}
+    
+    {% block layout %}
+    {% endblock layout %}
+    </div>
+    <!-- JS and Bootstrap -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+
+</body>
+    {% include  'partials/footer.html'%}
+</html>
