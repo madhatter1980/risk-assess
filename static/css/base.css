@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 /* Define regular weight */
 @font-face {
   font-family: "Poppins";
