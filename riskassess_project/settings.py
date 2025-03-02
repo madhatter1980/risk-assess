@@ -135,10 +135,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
-# Development
 STATIC_ROOT = BASE_DIR / "staticfiles"
-# Production
-# STATIC_ROOT = BASE_DIR / "/var/www/risk-assess/static/"
+
 
 
 # Default primary key field type
