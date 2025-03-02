@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = []
 
@@ -161,14 +161,14 @@ MESSAGE_TAGS = {
 }
 
 # Email Settings
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # Use this for testing
-
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # Use this for testing
 # using Zoho Mail to send emails via SMTP through notification@risk-assess.com
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "smtp.zoho.com.au"
-# EMAIL_PORT = 587  # Use 465 for SSL
-# EMAIL_USE_TLS = True  # Use False if using SSL (465)
-# EMAIL_USE_SSL = False  # Set to True only if using port 465
+EMAIL_BACKEND = env("EMAIL_BACKEND")
+EMAIL_HOST = "smtp.zoho.com.au"
+EMAIL_PORT = 587  # Use 465 for SSL
+EMAIL_USE_TLS = True  # Use False if using SSL (465)
+EMAIL_USE_SSL = False  # Set to True only if using port 465
 
 EMAIL_HOST_USER = "notification@risk-assess.com"
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
