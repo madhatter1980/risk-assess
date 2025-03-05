@@ -266,7 +266,7 @@ def timeout_form(request, questionnaire_id):
         business = timeout_questionnaire.business
         business_name = business.name
         business_branch = business.branch
-        questionnaire_name = timeout_questionnaire.name
+        questionnaire_name = timeout_questionnaire.name + " - " + timeout_questionnaire.description
         warning = False
 
         # Create Timeout instance

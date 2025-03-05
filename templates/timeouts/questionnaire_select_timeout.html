@@ -6,13 +6,14 @@
 <h2 class="mb-3">Choose which Timeout Questionnaire to submit</h2>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6">
     {% for questionnaire in questionnaires %}
-        <div class="col d-flex justify-content-center">
-            <a class="btn btn-primary w-100 m-3 d-flex align-items-center justify-content-center" 
-               href="{% url 'timeout_form' questionnaire.id %}" 
-               style="height: 60px;">
-                {{ questionnaire.name }}
-            </a>
-        </div>
+    <div class="col d-flex justify-content-center">
+        <a class="btn btn-primary w-100 m-3 d-flex align-items-center justify-content-center flex-column text-center" 
+           href="{% url 'timeout_form' questionnaire.id %}" 
+           style="height: 100px;">
+            <span class="fw-bold">{{ questionnaire.name }}</span>
+            <span class="text-white-50" style="font-size: 0.85rem;">{{ questionnaire.description }}</span>
+        </a>
+    </div>
     {% endfor %}
 </div>
 
