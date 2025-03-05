@@ -125,7 +125,7 @@ body {
 }
 
 .container-view-height {
-  min-height: calc(100vh - 110px); /* Subtract to allow for the footer height */
+  min-height: calc(100vh - 260px); /* Subtract to allow for the footer height */
 }
 
 .green-back {
