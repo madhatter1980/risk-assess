@@ -2,12 +2,12 @@
 {% block title %}Questionnaires{% endblock title %}
 {% block content %}
 <div class="row align-items-center mb-3">
-    <div class="col-md-6">
+    <div class="col-md-6 mb-3 mb-md-0">
         <h2>{{ business.name }} - Timeout Questionnaires</h2>
         <h4>Dashboard</h4>
     </div>
     {% if business_user.is_admin %}
-    <div class="col-md-3">
+    <div class="col-md-3 mb-3 mb-md-0">
         <div class="text-center">
             <a href="{% url 'timeout_list' %}" class="btn btn-secondary"
                 >Completed Timeouts</a
