@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "rest_framework",
     "django_filters",
+    "django_recaptcha",
     # Local Apps
     "riskassess_apps.users",
     "riskassess_apps.core",
@@ -218,3 +219,7 @@ else:
         "SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True
     )
     SECURE_HSTS_PRELOAD = env.bool("SECURE_HSTS_PRELOAD", default=True)
+
+# Google reCAPTCHA settings
+RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")

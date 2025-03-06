@@ -36,7 +36,17 @@
             {% endif %}
         </div>
     </div>
-    <button type="submit" class="btn btn-primary mt-3">Register</button>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-primary mt-3">Register</button>
+        </div>
+        <!-- reCAPTCHA field -->
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form.captcha|as_crispy_field }}
+            </div>
+        </div>
+    </div>
 </form>
 
 <!-- Terms and Conditions Modal -->
