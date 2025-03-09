@@ -329,7 +329,8 @@ def timeout_form(request, questionnaire_id):
         if warning == False:
             messages.success(
                 request,
-                "Timeout Submitted Successfully.",
+                "Timeout Submitted Successfully.<br>"
+                "Proceed with task, <strong>STAY SAFE!</strong>.",
             )
 
         return redirect("user_timeout_list")

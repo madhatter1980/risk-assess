@@ -26,7 +26,7 @@ def add_business(request):
                 request,
                 f"Business {business} created successfully.",
             )
-            return redirect('profile')
+            return redirect('business_profile')
     else:
         form = BusinessForm()
     return render(request, 'businesses/add_business.html', {'form': form})
@@ -39,7 +39,7 @@ def update_business(request, business_id):
 
     if not business_user.is_admin:
         messages.error(request, "You do not have permission to go there.")
-        return redirect('profile')
+        return redirect('business_profile')
 
     if request.method == 'POST':
         form = BusinessForm(request.POST, instance=business)
@@ -49,10 +49,32 @@ def update_business(request, business_id):
                 request,
                 f"Business {business} updated successfully.",
             )
-            return redirect('profile')
+            return redirect('business_profile')
     else:
         form = BusinessForm(instance=business)
     return render(request, 'businesses/add_business.html', {'form': form})
+
+
+@login_required
+def business_profile(request):
+    user = request.user
+
+    # Fetch business user and related data if exists
+    business_user = BusinessUser.objects.filter(user=user).select_related('business').first()
+
+    # Extract business and member count if a business user exists
+    business = business_user.business if business_user else None
+    members = (
+        BusinessUser.objects.filter(business=business).count() if business else 0
+    )
+
+    context = {
+        "business_user": business_user,
+        "business": business,
+        "members": members,
+    }
+
+    return render(request, "businesses/business_profile.html", context)
 
 
 @login_required
@@ -64,7 +86,7 @@ def business_users(request):
 
     if not business_user.is_admin:
         messages.error(request, "You do not have permission to go there.")
-        return redirect('profile')
+        return redirect('user_profile')
 
     # Extract business
     business = business_user.business if business_user else None
@@ -85,7 +107,7 @@ def api_business_users(request):
     
     if not business_user.is_admin:
         messages.error(request, "You do not have permission to go there.")
-        return redirect('profile')
+        return redirect('user_profile')
 
     business = business_user.business if business_user else None
     members = BusinessUser.objects.filter(business=business).exclude(user=user) if business else []
@@ -102,14 +124,14 @@ def business_user_toggle_admin(request, user_id):
     
     if not current_business_user.is_admin:
         messages.error(request, "You do not have permission to perform this action.")
-        return redirect('profile')
+        return redirect('user_profile')
 
     user = get_object_or_404(User, id=user_id)
     business_user = BusinessUser.objects.filter(user=user).first()
 
     if business_user.business != current_business_user.business:
         messages.error(request, "You do not have permission to perform this action.")
-        return redirect('profile')
+        return redirect('user_profile')
 
     if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         business_user.is_admin = not business_user.is_admin
@@ -126,7 +148,7 @@ def delete_business_user(request, user_id):
     
     if not business_user.is_admin:
         messages.error(request, "You do not have permission to perform this action.")
-        return redirect('profile')
+        return redirect('user_profile')
 
     # Get the business user to be deleted
     user_to_delete = get_object_or_404(BusinessUser, user_id=user_id)
@@ -134,7 +156,7 @@ def delete_business_user(request, user_id):
     # Check if the business user belongs to the same business
     if user_to_delete.business != business_user.business:
         messages.error(request, "You do not have permission to perform this action.")
-        return redirect('profile')
+        return redirect('user_profile')
 
     # Delete the business user
     user_to_delete.delete()

@@ -67,7 +67,7 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect("profile")
+        return redirect("user_profile")
 
 
 @login_required
@@ -205,7 +205,7 @@ def invite_password_reset_confirm(request, uidb64, token):
                 messages.success(
                     request, "Your password has been set. Welcome to the site!"
                 )
-                return redirect("profile")
+                return redirect("user_profile")
         else:
             form = SetPasswordForm(user)
         business_user = BusinessUser.objects.filter(user=user).first()
@@ -220,7 +220,7 @@ def invite_password_reset_confirm(request, uidb64, token):
 
 
 @login_required
-def profile(request):
+def user_profile(request):
     user = request.user
 
     # Fetch the user's profile
@@ -242,11 +242,11 @@ def profile(request):
         "members": members,
     }
 
-    return render(request, "registration/profile.html", context)
+    return render(request, "registration/user_profile.html", context)
 
 
 @login_required
-def update_profile(request):
+def update_user_profile(request):
     if request.method == "POST":
         user_form = CustomUserChangeForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
